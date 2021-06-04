@@ -592,4 +592,8 @@ footer {
   .hero-img img {
     height: 660px;
   }
+
+  .bground {
+    overflow: hidden;
+  }
 }
