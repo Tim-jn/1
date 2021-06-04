@@ -132,7 +132,7 @@ main {
 .bground {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   left: 0;
   top: 0;
   height: 100%;
@@ -562,7 +562,7 @@ footer {
     top: 0;
     right: 15px;
     width: 50%;
-    z-index: 10;
+    z-index: 2;
     border-radius: 10px;
   }
 
