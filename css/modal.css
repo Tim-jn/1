@@ -557,6 +557,20 @@ footer {
     margin-top: 10px;
   }
 
+  .main-navbar {
+    position: fixed;
+    top: 0;
+    right: 15px;
+    width: 50%;
+    z-index: 10;
+    border-radius: 10px;
+  }
+
+  .topnav.responsive .main-navbar {
+    border: 2px #818181 solid;
+    background: #fff;
+  }
+
   .topnav {
     display: flex;
     justify-content: space-between;

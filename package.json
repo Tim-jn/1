@@ -1,0 +1,22 @@
+{
+  "name": "gameon-website-fr",
+  "version": "1.0.0",
+  "description": "P4 Openclassrooms",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tim-jn/TimothyJeanmart_4_01062021.git"
+  },
+  "author": "Tim-Jn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tim-jn/TimothyJeanmart_4_01062021/issues"
+  },
+  "homepage": "https://github.com/Tim-jn/TimothyJeanmart_4_01062021#readme",
+  "devDependencies": {
+    "jasmine": "^3.7.0"
+  }
+}
