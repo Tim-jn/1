@@ -60,9 +60,8 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
-  text-decoration: underline;
+  text-decoration: underline 1px;
   text-underline-position: under;
-  text-decoration-thickness: 1px;
 }
 
 .topnav a.active {
