@@ -587,3 +587,9 @@ footer {
   }
 }
 
+@media screen and (min-width: 1201px) {
+  
+  .hero-img img {
+    height: 660px;
+  }
+}
