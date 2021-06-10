@@ -10,7 +10,6 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -100,10 +99,3 @@ function setSuccessFor(input) {
 	const formData = input.parentElement;					// sélectionne l'élément parent de input
 	formData.className = "formData succes";					// Crée une class formData.succes
 }
-  
-	/*const formData = new FormData(document.forms["reserve"])
-	if (!formData.get("location")) {
-		// error
-	}
-
-	// Object.values(radios).some(el => el.checked)*/
