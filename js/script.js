@@ -1,9 +1,9 @@
 function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
+  var topNav = document.getElementById("myTopnav");
+  if (topNav.className === "topnav") {
+    topNav.className += " responsive";
   } else {
-    x.className = "topnav";
+    topNav.className = "topnav";
   }
 }
 
@@ -32,6 +32,7 @@ const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const checkbox1 = document.getElementById("checkbox1");
+const allFields = [first, last, email, birthdate, quantity, checkbox1];
 
 reserve.addEventListener("submit", e => {
 	e.preventDefault();
@@ -88,14 +89,28 @@ function validate() {
 	}
 }
 
+/** Set error message on target input
+ * 
+ * @param {*} input 
+ * @param {string} message 
+ */
 function setErrorFor(input, message) {
 	const formData = input.parentElement; 					// sélectionne l'élément parent de input
 	const isValid = formData.querySelector(".isValid");	    // sélectionne la div warning de la class formData
 	formData.className = "formData error";					// Crée une class formData.error
-	isValid.innerText = message;							// Affiche le message d'erreur propre à chaque erreur
+	isValid.innerText = message;							// Affiche le message d'erreur propre à chaque erreur						
 }
-
+/** Set `success` class on target input  */
 function setSuccessFor(input) {	
 	const formData = input.parentElement;					// sélectionne l'élément parent de input
-	formData.className = "formData succes";					// Crée une class formData.succes
+	formData.className = "formData succes";					// Crée une class formData.succes		
+}
+
+function submitForm() {
+	if (/* valide */ true) {
+		allFields.forEach(setSuccessFor)
+		// openConfirmationModal();
+	} else {
+		alert("tous les éléments doivent être valide");
+	}
 }
