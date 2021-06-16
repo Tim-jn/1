@@ -36,12 +36,12 @@ img {
 }
 
 .header-logo {
-    width: auto;
-    height: auto;
-    float: left;
+  width: auto;
+  height: auto;
+  float: left;
 }
 .main-navbar {
-    float: right;
+  float: right;
 }
 .topnav a {
   float: left;
@@ -134,13 +134,14 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .content {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
+  min-height: 745px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -149,6 +150,22 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+}
+
+#confirmation-modal .content {
+  display: flex;
+  flex-direction: column;
+}
+
+#confirmation-modal .modal-body {
+  font-size: 36px;
+  font-weight: 400;
+  margin: auto;
+  text-align: center;
+}
+
+.btn-close {
+  margin-bottom: 30px !important;
 }
 
 .modal-body {
@@ -180,11 +197,11 @@ input {
   font-size: 10px;
   font-weight: 400;
   color: #e54858;
-	visibility: hidden;
+  visibility: hidden;
 }
 
 .formData.error .isValid {
-	visibility: visible;
+  visibility: visible;
 }
 
 .formData.error .text-control {
@@ -280,7 +297,8 @@ input {
 .close:after {
   transform: rotate(-45deg);
 }
-.btn-submit,.btn-signup {
+.btn-submit,
+.btn-signup {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -364,7 +382,7 @@ input {
   font-size: 14px;
   margin-top: 11px;
 }
-.hero-section {  
+.hero-section {
   border-radius: 10px;
   display: flex;
   overflow: hidden;
@@ -421,14 +439,13 @@ input {
   color: #fe142f;
   padding: 0;
   font-size: 1rem;
-  margin: 60px 0 30px;
+  margin: 60px 0 0;
   font-weight: bolder;
 }
 .hero-section > .btn-signup {
   display: none;
 }
 footer {
-  padding-left: 2vw;
   padding-right: 2vw;
   margin: 0 20px;
 }
@@ -443,8 +460,12 @@ footer {
   }
 }
 
-/* media queries */ 
+/* responsive */
 @media screen and (max-width: 821px) {
+  .bground {
+    top: 50px;
+  }
+
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -457,7 +478,9 @@ footer {
     width: 100%;
   }
 
-  .hero-headline, .hero-text, .hero-content {
+  .hero-headline,
+  .hero-text,
+  .hero-content {
     margin: 0;
     padding: 0;
   }
@@ -485,7 +508,7 @@ footer {
   }
 
   .hero-img {
-    width: 100%; 
+    width: 100%;
     margin-top: 25px;
   }
 
@@ -507,7 +530,7 @@ footer {
     font-size: 10px;
     margin-top: 0;
   }
-  
+
   .topnav a {
     display: none;
   }
@@ -562,8 +585,9 @@ footer {
     justify-content: space-between;
     align-items: center;
     margin-top: 15px;
+    z-index: 10;
   }
-} 
+}
 
 @media screen and (min-width: 822px) and (max-width: 1200px) {
   .main-navbar {
