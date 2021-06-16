@@ -65,14 +65,14 @@ function validate() {
   const birthdateValue = birthdate.value.trim();
   const quantityValue = quantity.value.trim();
 
-  if (firstValue === "") {
+  if (firstValue.length < 2) {
     setErrorFor(first, "*Veuillez renseigner un prénom d'au moins deux caractères");
     errors.push(error); // ajoute un "error" au tableau "errors"
   } else {
     setSuccessFor(first);
   }
 
-  if (lastValue === "") {
+  if (lastValue.length < 2) {
     setErrorFor(last, "*Veuillez renseigner un nom d'au moins deux caractères");
     errors.push(error);
   } else {
