@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>GameOn - Acceuil</title>
+    <title>GameOn - Accueil</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="css/style.css" />
     <link
@@ -38,8 +38,8 @@
             de jeux vidéos
           </h1>
           <p class="hero-text">
-            Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux
-            réservations... Places limitées !
+            Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations... Places
+            limitées !
           </p>
           <button class="btn-signup modal-btn">Je m'inscris</button>
         </div>
@@ -58,52 +58,30 @@
               class="reserve"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
+              onsubmit="return getFormErrors();"
             >
               <div class="formData">
                 <label for="first">Prénom</label><br />
-                <input
-                  class="text-control"
-                  type="text"
-                  id="first"
-                  name="first"
-                /><br />
+                <input class="text-control" type="text" id="first" name="first" /><br />
                 <div class="isValid"></div>
               </div>
               <div class="formData">
                 <label for="last">Nom</label><br />
-                <input
-                  class="text-control"
-                  type="text"
-                  id="last"
-                  name="last"
-                /><br />
+                <input class="text-control" type="text" id="last" name="last" /><br />
                 <div class="isValid"></div>
               </div>
               <div class="formData">
                 <label for="email">E-mail</label><br />
-                <input
-                  class="text-control"
-                  type="email"
-                  id="email"
-                  name="email"
-                /><br />
+                <input class="text-control" type="email" id="email" name="email" /><br />
                 <div class="isValid"></div>
               </div>
               <div class="formData">
                 <label for="birthdate">Date de naissance</label><br />
-                <input
-                  class="text-control"
-                  type="date"
-                  id="birthdate"
-                  name="birthdate"
-                /><br />
+                <input class="text-control" type="date" id="birthdate" name="birthdate" /><br />
                 <div class="isValid"></div>
               </div>
               <div class="formData">
-                <label for="quantity"
-                  >À combien de tournois GameOn avez-vous déjà participé
-                  ?</label
+                <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label
                 ><br />
                 <input
                   type="number"
@@ -198,12 +176,7 @@
                 <div class="isValid"></div>
               </div>
               <div class="formData">
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="checkbox1"
-                  checked
-                />
+                <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
                 <label class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
@@ -216,11 +189,7 @@
                 </label>
                 <br />
               </div>
-              <input
-                class="btn-submit button"
-                type="submit"
-                value="C'est parti"
-              />
+              <input class="btn-submit button" type="submit" value="C'est parti" />
             </form>
           </div>
         </div>
@@ -229,10 +198,7 @@
         <div class="content">
           <span class="close" onclick="closeConfirmationModal()"></span>
           <div class="modal-body">Merci ! Votre réservation a été reçue.</div>
-          <button
-            class="btn-submit button btn-close"
-            onclick="closeConfirmationModal()"
-          >
+          <button class="btn-submit button btn-close" onclick="closeConfirmationModal()">
             Fermer
           </button>
         </div>

@@ -41,74 +41,17 @@ const email = document.getElementById("email");
 const birthdate = document.getElementById("birthdate");
 const quantity = document.getElementById("quantity");
 const checkbox1 = document.getElementById("checkbox1");
-const errors = [];
-const error = "";
+let errors = [];
 
 reserve.addEventListener("submit", (e) => {
   e.preventDefault();
-  // Vérification des champs
-  if (validate()) {
+  const errors = getFormErrors();
+  if (errors.length === 0) {
     launchConfirmationModal();
   } else {
-    errors.splice(0, errors.length); // reset la liste d'erreurs
+    errors.forEach(([input, message]) => setErrorFor(input, message));
   }
 });
-
-/**
- * @return {boolean}
- */
-function validate() {
-  // On reprend la valeur de chaque variable et on enlève les espaces avec trim()
-  const firstValue = first.value.trim();
-  const lastValue = last.value.trim();
-  const emailValue = email.value.trim();
-  const birthdateValue = birthdate.value.trim();
-  const quantityValue = quantity.value.trim();
-
-  if (firstValue.length < 2) {
-    setErrorFor(first, "*Veuillez renseigner un prénom d'au moins deux caractères");
-    errors.push(error); // ajoute un "error" au tableau "errors"
-  } else {
-    setSuccessFor(first);
-  }
-
-  if (lastValue.length < 2) {
-    setErrorFor(last, "*Veuillez renseigner un nom d'au moins deux caractères");
-    errors.push(error);
-  } else {
-    setSuccessFor(last);
-  }
-
-  if (emailValue === "") {
-    setErrorFor(email, "*Veuillez renseigner un email");
-    errors.push(error);
-  } else {
-    setSuccessFor(email);
-  }
-
-  if (birthdateValue === "") {
-    setErrorFor(birthdate, "*Veuillez renseigner une date de naissance");
-    errors.push(error);
-  } else {
-    setSuccessFor(birthdate);
-  }
-
-  if (quantityValue === "") {
-    setErrorFor(quantity, "*Veuillez renseigner un nombre");
-    errors.push(error);
-  } else {
-    setSuccessFor(quantity);
-  }
-
-  if (checkbox1.checked === false) {
-    setErrorFor(checkbox1, "*Cette case est obligatoire");
-    errors.push(error);
-  } else {
-    setSuccessFor(checkbox1);
-  }
-
-  return errors.length === 0; // compte le nombre d'erreurs, si = 0 valide, sinon erreur
-}
 
 // Affiche un message d'erreur sur l'input concerné
 function setErrorFor(input, message) {
@@ -117,8 +60,53 @@ function setErrorFor(input, message) {
   formData.className = "formData error"; // Crée une class formData.error
   isValid.innerText = message; // Affiche le message d'erreur propre à chaque erreur
 }
+
 // Affiche une classe succes sur l'input concerné
 function setSuccessFor(input) {
   const formData = input.parentElement; // sélectionne l'élément parent de input
   formData.className = "formData succes"; // Crée une class formData.succes
+}
+
+[first, last, email, birthdate, quantity, checkbox1].forEach((input) =>
+  input.addEventListener("input", () => {
+    setSuccessFor(input);
+  })
+);
+
+function getFormErrors() {
+  // Reprend la valeur de chaque variable et enlève les espaces avec trim()
+  const firstValue = first.value.trim();
+  const lastValue = last.value.trim();
+  const emailValue = email.value.trim();
+  const birthdateValue = birthdate.value.trim();
+  const quantityValue = quantity.value.trim();
+  
+  errors = []; // reset la liste d'erreurs
+
+  // ajoute une erreur si nécessaire au tableau "errors"
+  if (firstValue.length < 2) {
+    errors.push([first, "*Veuillez renseigner un prénom d'au moins deux caractères"]); 
+  }
+
+  if (lastValue.length < 2) {
+    errors.push([last, "*Veuillez renseigner un nom d'au moins deux caractères"]);
+  }
+
+  if (emailValue === "") {
+    errors.push([email, "*Veuillez renseigner un email"]);
+  }
+
+  if (birthdateValue === "") {
+    errors.push([birthdate, "*Veuillez renseigner une date de naissance"]);
+  }
+
+  if (quantityValue === "") {
+    errors.push([quantity, "*Veuillez renseigner un nombre"]);
+  }
+
+  if (checkbox1.checked === false) {
+    errors.push([checkbox1, "*Cette case est obligatoire"]);
+  }
+
+  return errors; // compte le nombre d'erreurs, si = 0 valide, sinon erreur
 }
