@@ -8,7 +8,7 @@ function editNav() {
   }
 }
 
-// launch,close modal elements
+// launch,close modal DOM elements
 const formModalBg = document.querySelector("#form-modal.bground");
 const formModalBtn = document.querySelectorAll(".btn-signup");
 const confirmationModalBg = document.querySelector("#confirmation-modal.bground");
@@ -44,11 +44,11 @@ const checkbox1 = document.getElementById("checkbox1");
 let errors = [];
 
 reserve.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const errors = getFormErrors();
+  e.preventDefault(); // neutralise le comportement de validation par défaut
   if (errors.length === 0) {
     launchConfirmationModal();
   } else {
+    // pour chaque message d'erreur d'un input, on applique la fonction setErrorFor
     errors.forEach(([input, message]) => setErrorFor(input, message));
   }
 });
@@ -61,17 +61,18 @@ function setErrorFor(input, message) {
   isValid.innerText = message; // Affiche le message d'erreur propre à chaque erreur
 }
 
-// Affiche une classe succes sur l'input concerné
-function setSuccessFor(input) {
-  const formData = input.parentElement; // sélectionne l'élément parent de input
-  formData.className = "formData succes"; // Crée une class formData.succes
-}
-
+// pour chaque input valide, on applique la fonction setSuccessFor
 [first, last, email, birthdate, quantity, checkbox1].forEach((input) =>
   input.addEventListener("input", () => {
     setSuccessFor(input);
   })
 );
+
+// Affiche une classe succes sur l'input concerné
+function setSuccessFor(input) {
+  const formData = input.parentElement; // sélectionne l'élément parent de input
+  formData.className = "formData succes"; // Crée une class formData.succes
+}
 
 function getFormErrors() {
   // Reprend la valeur de chaque variable et enlève les espaces avec trim()
@@ -80,12 +81,12 @@ function getFormErrors() {
   const emailValue = email.value.trim();
   const birthdateValue = birthdate.value.trim();
   const quantityValue = quantity.value.trim();
-  
+
   errors = []; // reset la liste d'erreurs
 
   // ajoute une erreur si nécessaire au tableau "errors"
   if (firstValue.length < 2) {
-    errors.push([first, "*Veuillez renseigner un prénom d'au moins deux caractères"]); 
+    errors.push([first, "*Veuillez renseigner un prénom d'au moins deux caractères"]);
   }
 
   if (lastValue.length < 2) {
