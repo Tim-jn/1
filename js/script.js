@@ -19,18 +19,22 @@ formModalBtn.forEach((btn) => btn.addEventListener("click", launchFormModal));
 // launch modal form
 function launchFormModal() {
   formModalBg.style.display = "block";
+  document.body.style.overflow = "hidden";
 }
 function launchConfirmationModal() {
   confirmationModalBg.style.display = "block";
+  document.body.style.overflow = "hidden";
 }
 
 // close modal form
 function closeFormModal() {
   formModalBg.style.display = "none";
+  document.body.style.overflow = "auto";
 }
 function closeConfirmationModal() {
   confirmationModalBg.style.display = "none";
   formModalBg.style.display = "none";
+  document.body.style.overflow = "auto";
 }
 
 // form validation
@@ -45,6 +49,7 @@ let errors = [];
 
 reserve.addEventListener("submit", (e) => {
   e.preventDefault(); // neutralise le comportement de validation par défaut
+  getFormErrors();
   if (errors.length === 0) {
     launchConfirmationModal();
   } else {
@@ -61,7 +66,7 @@ function setErrorFor(input, message) {
   isValid.innerText = message; // Affiche le message d'erreur propre à chaque erreur
 }
 
-// pour chaque input valide, on applique la fonction setSuccessFor
+// réinitialise le contenu du message d'erreur lorsqu'on saisit un caractère dans le champ
 [first, last, email, birthdate, quantity, checkbox1].forEach((input) =>
   input.addEventListener("input", () => {
     setSuccessFor(input);

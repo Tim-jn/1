@@ -493,6 +493,7 @@ footer {
     font-size: 48px;
     line-height: 62px;
     font-weight: 500;
+    margin-top: 55px;
   }
 
   .hero-text {
@@ -535,10 +536,6 @@ footer {
     display: block;
   }
 
-  .topnav.responsive {
-    position: relative;
-  }
-
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -555,6 +552,7 @@ footer {
     height: 24px;
     width: 132px;
     box-sizing: content-box;
+    margin: 15px 0 15px 0;
   }
 
   main {
@@ -563,7 +561,7 @@ footer {
 
   .main-navbar {
     position: fixed;
-    top: 0;
+    top: 2px;
     right: 15px;
     width: 50%;
     z-index: 2;
@@ -576,10 +574,16 @@ footer {
   }
 
   .topnav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 4;
+    margin: 0;
+    padding-left: 28px;
+  }
+
+  .content {
+    top: 50px;
   }
 }
 
