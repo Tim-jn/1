@@ -1,4 +1,6 @@
 # GameOn
+
+## Intitulé du projet
 Créez une landing page avec Javascript
 
 ## [Live demo](https://timjn-gameon.netlify.app/)
